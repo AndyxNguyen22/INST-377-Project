@@ -17,7 +17,7 @@
                 <li>About Us</li>
                 <li>
                     <!-- Search Bar -->
-                    <form onsubmit="searchBooks(event)" id="searchForm">
+                    <form onsubmit="searchBooksGoogle(event)" id="searchForm">
                         <input type="text" id="searchBox">
                         <button type="submit" id="searchSubmit" class="button-11">Submit</button>
                     </form>
@@ -33,9 +33,7 @@
         <div id="searchResultsContainer">
             <h1 id="loadingText"></h1>
 
-            <table id="resultsTable">
-
-            </table>
+            <table id="resultsTable"></table>
         </div>
         
     </body>
