@@ -64,6 +64,19 @@ body {
     text-align: center;
 }
 
+/* Search Results */
+
+#searchResultsContainer {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.styleResultsTable {
+    background-color: white;
+    border: 2px solid gray;
+    padding: 5px;
+}
 
 
 
