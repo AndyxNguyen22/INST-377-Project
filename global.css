@@ -76,6 +76,34 @@ body {
     background-color: white;
     border: 2px solid gray;
     padding: 5px;
+    border-collapse: collapse;
+}
+
+.styleResultsTable td {
+    border-bottom: 1px solid gray;
+}
+
+.styleResultsTable tr td{
+    padding: 5px;
+}
+
+.styleResultsTable tr th{
+    padding: 5px;
+    padding-top: 6px;
+}
+
+.titleAuthorCell {
+    max-width: 50ch;
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+.styleResultsTable tr th:hover{
+    background-color: gray;
+}
+
+.bookLink {
+    color: black;
 }
 
 
