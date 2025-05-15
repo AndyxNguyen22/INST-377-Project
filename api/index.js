@@ -16,7 +16,6 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 
-app.use(express.static(path.join(__dirname, 'public')));
 
 // SupaBase
 const supabaseUrl = process.env.SUPABASE_URL;
@@ -127,4 +126,6 @@ app.get('/:bookID', async (req, res) => {
         `)
     });
 });
+
+module.exports = serverless(app);
 

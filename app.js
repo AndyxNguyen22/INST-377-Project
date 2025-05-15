@@ -21,7 +21,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // SupaBase
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_KEY;
-const supabase = supabaseClient.createClient(supabaseUrl,supabaseKey);
+const supabase = supabaseClient.createClient(supabaseUrl, supabaseKey);
 
 app.get('/INST377-Project', async(req, res) => {
     console.log('Attempting to GET all books!');
