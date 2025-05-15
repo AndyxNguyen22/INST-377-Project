@@ -2,21 +2,22 @@
   "name": "inst-377-project",
   "version": "1.0.0",
   "description": "# Names: Andy Nguyen & Thara Le",
-  "main": "app.js",
-  "scripts": {
-    "start": "nodemon -e '*'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "homepage": "https://github.com/AndyxNguyen22/INST-377-Project#readme",
+  "bugs": {
+    "url": "https://github.com/AndyxNguyen22/INST-377-Project/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AndyxNguyen22/INST-377-Project.git"
   },
-  "author": "Thara Le, Andy Nguyen",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/AndyxNguyen22/INST-377-Project/issues"
+  "author": "Thara Le, Andy Nguyen",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon -e '*'",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "homepage": "https://github.com/AndyxNguyen22/INST-377-Project#readme",
   "dependencies": {
     "@supabase/supabase-js": "^2.49.4",
     "body-parser": "^2.2.0",
