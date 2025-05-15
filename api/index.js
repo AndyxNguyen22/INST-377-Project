@@ -61,9 +61,6 @@ if (error) {
 
 /////// 
 
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/public/HomePage.html');
-  });  
 
 app.get('/:bookID', async (req, res) => {
     const bookID = req.params.bookID;
