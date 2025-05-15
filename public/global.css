@@ -158,3 +158,13 @@ body {
   #booksBody {
     text-align: center;
   }
+
+  #savedBooksTable td:nth-child(1),
+  #savedBooksTable th:nth-child(1) {
+    padding-right: 40px;
+  }
+
+  #savedBooksTable {
+    margin: auto;
+    font-size: larger;
+  }

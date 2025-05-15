@@ -147,3 +147,49 @@ async function saveBookToBackend(bookTitle, bookAuthor) {
         console.error('Error:',error);
     }
 };
+
+// Appending the Saved Books onto BookPage
+async function loadSavedBooks (){
+    try {
+        const response = await fetch ('/INST377-Project');
+        const books = await response.json();
+        const savedBooksTable = document.getElementById('savedBooksTable');
+
+        if (!books || books.length === 0) {
+            const row = document.createElement('tr');
+            const cell  = document.createElement('td');
+
+            cell.colSpan = 2;
+            cell.textContent = 'No Saved Books Yet';
+
+            row.appendChild(cell);
+            savedBooksTable.appendChild(row);
+            return;
+        }
+
+        books.forEach(book => {
+            const row = document.createElement('tr');
+            const titleCell = document.createElement('td');
+
+            titleCell.textContent = book.book_title;
+            row.appendChild(titleCell);
+
+            const authorCell = document.createElement('td');
+
+            authorCell.textContent = book.book_author;
+
+            row.appendChild(authorCell);
+            savedBooksTable.appendChild(row);
+        });
+    } catch (error) {
+        console.error('Error:', error);
+    }
+};
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    if (document.getElementById('savedBooksTable')) {
+        loadSavedBooks();
+    }
+});
+
