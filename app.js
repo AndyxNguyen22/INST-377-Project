@@ -5,7 +5,60 @@ const app = express();
 const port = process.env.PORT || 3000;
 const path = require('path');
 
+// BodyParser
+const bodyParser = require('body-parser');
+// SupaBase 
+const supabaseClient = require ('@supabase/supabase-js');
+// BodyParser
+app.use(bodyParser.json());
+// 
+
 app.use(express.static(path.join(__dirname, 'public')));
+
+// SupaBase
+const supabaseUrl = 'https://kwsnsofpnlmpwawnglyc.supabase.co';
+const supabaseKey = 
+'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt3c25zb2ZwbmxtcHdhd25nbHljIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcyNzUwMzksImV4cCI6MjA2Mjg1MTAzOX0.RRUzG0VOPfwZfF_kmxALSRIBPGey4L7lOQDBgVG7PM8';
+const supabase = supabaseClient.createClient(supabaseUrl,supabaseKey)
+
+app.get('/INST377-Project', async(req, res) => {
+    console.log('Attempting to GET all books!');
+
+    const { data, error } = await supabase.from('customer').select();
+
+    if (error) {
+        console.log(`Error: ${error}`);
+        res.send(error);
+    }
+
+    res.send(data);
+});
+
+app.post('/customer', async(req,res) =>{
+    console.log('Adding book');
+
+    console.log(req.body);
+    const bookAuthor = req.body.bookAuthor;
+    const bookTitle = req.body.bookTitle;
+
+    const { data, error } = await supabase
+  .from('customer')
+  .insert({ 
+    book_author: bookAuthor, 
+    book_title: bookTitle })
+  .select();
+
+if (error) {
+        console.log(`Error: ${error}`);
+        res.statusCode = 500;
+        res.send(error);
+    }
+
+
+    res.send(data);
+});
+
+/////// 
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/HomePage.html');
