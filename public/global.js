@@ -98,10 +98,52 @@ async function searchBooksGoogle(event) {
                                     Published: ${book.volumeInfo.publishedDate}`
             tableRow.appendChild(authorCell);
 
-            resultsTable.append(tableRow);
+
+            //Saved Book Button
+            const title = book.volumeInfo.title ||  'No title';
+            const authorsArray = book.volumeInfo.authors || ['Unknown Author'];
+            const authors = authorsArray.join(', ');
+
+
+            const save = document.createElement('td');
+            const saveButton = document.createElement('button');
+            saveButton.textContent = 'Save';
+            saveButton.addEventListener('click', () => {
+                saveBookToBackend(title, authors);
+            }); 
+            save.appendChild(saveButton);
+            tableRow.appendChild(save);
+
+
+
+            resultsTable.appendChild(tableRow);
         });
 
         // im a genius
         resultsTable.setAttribute('class', 'styleResultsTable')
     });
+};
+
+// Adding Saved Book to datbase Function
+
+async function saveBookToBackend(bookTitle, bookAuthor) {
+    try {
+        const response = await fetch ('/customer', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify ({bookTitle, bookAuthor})
+        });
+
+        const result = await response.json();
+        if (response.ok){
+            alert (`"${bookTitle}" by ${bookAuthor} saved successfully`);
+            console.log('Saved to database:', result);
+        } else {
+            alert (`Failed to save: ${result.message}`);
+            console.error('Error:', result);
+        }
+    } catch (error) {
+        alert ('An error occurred trying to save the book');
+        console.error('Error:',error);
+    }
 };
