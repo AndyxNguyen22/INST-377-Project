@@ -73,6 +73,9 @@ async function searchBooksGoogle(event) {
     const resultsTable = document.getElementById('resultsTable');
     resultsTable.innerHTML = '';
 
+    const sliderDiv = document.getElementById('sliderDiv');
+    sliderDiv.style.display = 'none';
+
     const bookName = document.getElementById('searchBox').value.trim().replace(/\s+/g, "+");
     console.log(bookName);
     
