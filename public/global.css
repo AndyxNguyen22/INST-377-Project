@@ -168,3 +168,10 @@ body {
     margin: auto;
     font-size: larger;
   }
+
+  #sliderDiv {
+    width: 400px;
+    height: 600px;
+    margin:auto
+    
+  }

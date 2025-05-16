@@ -1,61 +1,64 @@
-// Open Library Function (not being used)
+// // Open Library Function (not being used)
 
-async function searchBooks(event) {
-    event.preventDefault();
+// const { response } = require("express");
 
-    const welcomeMessage = document.getElementById('welcomeMessage');
-    welcomeMessage.innerHTML = ''
+// async function searchBooks(event) {
+//     event.preventDefault();
 
-    const resultsTable = document.getElementById('resultsTable');
-    resultsTable.innerHTML = '';
+//     const welcomeMessage = document.getElementById('welcomeMessage');
+//     welcomeMessage.innerHTML = ''
 
-    const bookName = document.getElementById('searchBox').value.trim().replace(/\s+/g, "+");
-    console.log(bookName);
+//     const resultsTable = document.getElementById('resultsTable');
+//     resultsTable.innerHTML = '';
+
+//     const bookName = document.getElementById('searchBox').value.trim().replace(/\s+/g, "+");
+//     console.log(bookName);
     
     
-    await fetch(`https://openlibrary.org/search.json?title=${bookName}`)
-    .then((result) => result.json())
-    .then((data) => {
-        const firstRow = document.createElement('tr');
+//     await fetch(`https://openlibrary.org/search.json?title=${bookName}`)
+//     .then((result) => result.json())
+//     .then((data) => {
+//         const firstRow = document.createElement('tr');
 
-        const coverColumn = document.createElement('th');
-        coverColumn.textContent = 'Cover';
-        firstRow.appendChild(coverColumn);
+//         const coverColumn = document.createElement('th');
+//         coverColumn.textContent = 'Cover';
+//         firstRow.appendChild(coverColumn);
 
-        const titleColumn = document.createElement('th');
-        titleColumn.textContent = 'Title';
-        firstRow.appendChild(titleColumn);
+//         const titleColumn = document.createElement('th');
+//         titleColumn.textContent = 'Title';
+//         firstRow.appendChild(titleColumn);
 
-        const authorColumn = document.createElement('th');
-        authorColumn.textContent = 'Author';
-        firstRow.appendChild(authorColumn);
+//         const authorColumn = document.createElement('th');
+//         authorColumn.textContent = 'Author';
+//         firstRow.appendChild(authorColumn);
 
-        resultsTable.append(firstRow);
+//         resultsTable.append(firstRow);
 
-        const books = data.docs;
-        books.forEach(book => {
-            const tableRow = document.createElement('tr');
+//         const books = data.docs;
+//         books.forEach(book => {
+//             const tableRow = document.createElement('tr');
 
-            const coverCell = document.createElement('td');
-            coverCell.innerHTML = `<img src="https://covers.openlibrary.org/b/id/${book.cover_i}-S.jpg" width="40" height="60">`;
-            tableRow.appendChild(coverCell);
+//             const coverCell = document.createElement('td');
+//             coverCell.innerHTML = `<img src="https://covers.openlibrary.org/b/id/${book.cover_i}-S.jpg" width="40" height="60">`;
+//             tableRow.appendChild(coverCell);
 
-            const titleCell = document.createElement('td');
-            titleCell.textContent = book.title;
-            titleCell.setAttribute('class', 'titleCell')
-            tableRow.appendChild(titleCell);
+//             const titleCell = document.createElement('td');
+//             titleCell.textContent = book.title;
+//             titleCell.setAttribute('class', 'titleCell')
+//             tableRow.appendChild(titleCell);
 
-            const authorCell = document.createElement('td');
-            authorCell.textContent = book.author_name;
-            tableRow.appendChild(authorCell);
+//             const authorCell = document.createElement('td');
+//             authorCell.textContent = book.author_name;
+//             tableRow.appendChild(authorCell);
 
-            resultsTable.append(tableRow);
-        });
+//             resultsTable.append(tableRow);
+//         });
 
-        // im a genius
-        resultsTable.setAttribute('class', 'styleResultsTable')
-    });
-};
+//         // im a genius
+//         resultsTable.setAttribute('class', 'styleResultsTable')
+//     });
+// };
+
 
 // Google API Function (being used)
 
@@ -124,8 +127,7 @@ async function searchBooksGoogle(event) {
     });
 };
 
-// Adding Saved Book to datbase Function
-
+// Adding Saved Book to Database Function
 async function saveBookToBackend(bookTitle, bookAuthor) {
     try {
         const response = await fetch ('/customer', {
@@ -135,17 +137,21 @@ async function saveBookToBackend(bookTitle, bookAuthor) {
         });
 
         const result = await response.json();
+
         if (response.ok){
             alert (`"${bookTitle}" by ${bookAuthor} saved successfully`);
             console.log('Saved to database:', result);
+
         } else {
             alert (`Failed to save: ${result.message}`);
             console.error('Error:', result);
         }
+
     } catch (error) {
         alert ('An error occurred trying to save the book');
         console.error('Error:',error);
     }
+
 };
 
 // Appending the Saved Books onto BookPage
@@ -158,7 +164,6 @@ async function loadSavedBooks (){
         if (!books || books.length === 0) {
             const row = document.createElement('tr');
             const cell  = document.createElement('td');
-
             cell.colSpan = 2;
             cell.textContent = 'No Saved Books Yet';
 
@@ -175,12 +180,13 @@ async function loadSavedBooks (){
             row.appendChild(titleCell);
 
             const authorCell = document.createElement('td');
-
             authorCell.textContent = book.book_author;
 
             row.appendChild(authorCell);
             savedBooksTable.appendChild(row);
         });
+
+
     } catch (error) {
         console.error('Error:', error);
     }
@@ -193,3 +199,43 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+
+// Simple Slider for Book Covers
+async function bookImages() {
+    const sliderDiv = document.getElementById("sliderDiv");
+    sliderDiv.innerHTML = "";
+    const bookSubjects = ["fantasy", "fiction", "mystery", "romance", "science"];
+
+
+    const imagesLoad = Array.from({length:10}, () => {
+        const random = bookSubjects[Math.floor (Math.random() * bookSubjects.length)];
+        return fetch (`https://openlibrary.org/subjects/${random}.json?limit=100`)
+        .then (response => response.json())
+        .then (data => {
+            const dataArray = data.works;
+            const cover = dataArray.filter(book => book.cover_id);
+            if (cover.length === 0) return null;
+
+            const randomBook = cover [Math.floor(Math.random() * cover.length)];
+            return `https://covers.openlibrary.org/b/id/${randomBook.cover_id}-L.jpg`;
+        });
+    });
+
+
+    try {
+        const images = await Promise.all(imagesLoad);
+        images.forEach(url => {
+            const img = document.createElement("img");
+            img.src= url;
+            sliderDiv.appendChild(img);
+        });
+        simpleslider.getSlider();
+    }
+
+    catch (error) {
+        console.error("Error loading image:", error);
+    }
+
+
+}
+bookImages();
