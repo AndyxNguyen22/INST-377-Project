@@ -237,5 +237,6 @@ async function bookImages() {
     }
 
 
-}
+};
+
 bookImages();
