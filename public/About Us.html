@@ -3,8 +3,11 @@
  <head>
         <title>Looks Books</title>
         <link rel="stylesheet" href="global.css">
+        <script src= "//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
         <script defer src="global.js"></script>
-    </head>
+
+
+</head>
 
     <!-- Header -->
         <header id="daHeader">
@@ -14,8 +17,8 @@
         <nav>
             <ul id="navBar">
                 <li><a href = "HomePage.html">Home Page</a></li>
-                <li><a href = "BookPage.html">Book Page</a></li>
-                <li><a href = "AboutPage.html">About Us</a></li>
+                <li><a href = "Book Page.html">Book Page</a></li>
+                <li><a href = "About Us.html">About Us</a></li>
                 <li>
                     <!-- Search Bar -->
                     <form onsubmit="searchBooks(event)" id="searchForm">
@@ -39,6 +42,26 @@
         Please feel free to contact us at anguye03@terpmail.umd.edu!
     </p>
 
+
+
+
+     <!-- Audio Buttons -->
+        <div class = "speech-box">
+            <div class = "speech-text">
+                <h1>In this web page there are options to Navigate using Audio!</h1>
+                <p>Ensure your Mic is enabled to be able to use this feature <br>
+                    <ul>
+                       <li>Navigate to a Different Page</li> 
+                            <ul>
+                                <li> Say: Navigate to "page" </li>
+                            </ul>
+                </p>
+            </div>
+
+        <div class="audio-buttons">
+            <button class="onButton" onclick = "annyang.start()">Turn On Listening</button>
+            <button class="offButton" onclick = "annyang.abort()">Turn Off Listening</button>
+        </div>
 
 </body>
 

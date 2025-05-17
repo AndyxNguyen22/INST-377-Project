@@ -243,3 +243,22 @@ async function bookImages() {
 };
 
 bookImages();
+
+
+// Annyang
+if (annyang) {
+    const commands = {
+      'Navigate to *page': pageNavigate
+    };
+    
+    function pageNavigate(url){
+        url += ".html";
+        window.location.href = url;
+    }
+
+   
+    // Add our commands to annyang
+    annyang.addCommands(commands);
+
+    annyang.start();
+};
