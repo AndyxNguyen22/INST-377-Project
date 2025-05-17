@@ -248,13 +248,22 @@ bookImages();
 // Annyang
 if (annyang) {
     const commands = {
-      'Navigate to *page': pageNavigate
+        'Navigate to *page': pageNavigate,
+        // 'Lookup *book': audioBook,
     };
     
     function pageNavigate(url){
         url += ".html";
         window.location.href = url;
     }
+
+    //  function audioBook(bookName) {
+    //     const bookName = document.getElementById("searchBox").value.trim().replace(/\s+/g, "+");
+
+    //     bookName.value = bookName;   
+
+    //     searchBooksGoogle();
+    // }
 
    
     // Add our commands to annyang
