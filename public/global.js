@@ -249,7 +249,7 @@ bookImages();
 if (annyang) {
     const commands = {
         'Navigate to *page': pageNavigate,
-        // 'Lookup *book': audioBook,
+        'Lookup *book': audioBook,
     };
     
     function pageNavigate(url){
@@ -257,13 +257,12 @@ if (annyang) {
         window.location.href = url;
     }
 
-    //  function audioBook(bookName) {
-    //     const bookName = document.getElementById("searchBox").value.trim().replace(/\s+/g, "+");
+     function audioBook(audioBookName) {
+        const audioSearchBox = document.getElementById("searchBox");
+        audioSearchBox.value = audioBookName;
 
-    //     bookName.value = bookName;   
-
-    //     searchBooksGoogle();
-    // }
+        searchBooksGoogle(new Event('submit'));
+    }
 
    
     // Add our commands to annyang
