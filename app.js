@@ -19,9 +19,8 @@ dotenv.config();
 app.use(express.static(path.join(__dirname, 'public')));
 
 // SupaBase
-const supabaseUrl = 'https://kwsnsofpnlmpwawnglyc.supabase.co';
-const supabaseKey = 
-'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt3c25zb2ZwbmxtcHdhd25nbHljIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcyNzUwMzksImV4cCI6MjA2Mjg1MTAzOX0.RRUzG0VOPfwZfF_kmxALSRIBPGey4L7lOQDBgVG7PM8';
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseKey = process.env.SUPABASE_KEY;
 const supabase = supabaseClient.createClient(supabaseUrl, supabaseKey);
 
 app.get('/INST377-Project', async(req, res) => {
