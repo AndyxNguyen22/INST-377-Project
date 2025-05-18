@@ -252,9 +252,10 @@ if (annyang) {
         'Lookup *book': audioBook,
     };
     
-    function pageNavigate(url){
-        url += ".html";
-        window.location.href = url;
+    function pageNavigate(page) {
+        page = page.charAt(0).toUpperCase() + page.slice(1).toLowerCase()
+        page += ".html";
+        window.location.href = page;
     }
 
      function audioBook(audioBookName) {
