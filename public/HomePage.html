@@ -68,8 +68,10 @@
             </div>
 
         <div class="audio-buttons">
-            <button class="onButton" onclick = "annyang.start()">Turn On Listening</button>
-            <button class="offButton" onclick = "annyang.abort()">Turn Off Listening</button>
+            <button class="onButton" onclick = "annyang.start({ autoRestart: false, continuous: false }); 
+                                                console.log('Annyang is listening')">Turn On Listening</button>
+            <button class="offButton" onclick = "annyang.abort();
+                                                console.log('Annyang stopped listening')">Turn Off Listening</button>
         </div>
 
 

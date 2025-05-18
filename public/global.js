@@ -270,4 +270,8 @@ if (annyang) {
 
     annyang.start();
     console.log('Annyang successfully started.')
+
+    annyang.addCallback('error', function(err) {
+        console.error('Annyang error:', err);
+      });
 };
