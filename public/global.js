@@ -252,12 +252,15 @@ if (annyang) {
         'Lookup *book': audioBook,
     };
     
-    function pageNavigate(url){
-        url += ".html";
-        window.location.href = url;
+    function pageNavigate(page) {
+        page = page.toLowerCase().split(' ').map(word =>word.charAt(0).toUpperCase() + word.slice(1)).join('');
+        page += ".html";
+        window.location.href = page;
+        console.log(page);
     }
 
      function audioBook(audioBookName) {
+        console.log('User wishes to lookup: ', audioBookName);
         const audioSearchBox = document.getElementById("searchBox");
         audioSearchBox.value = audioBookName;
 
@@ -268,5 +271,7 @@ if (annyang) {
     // Add our commands to annyang
     annyang.addCommands(commands);
 
-    annyang.start();
+    annyang.addCallback('error', function(err) {
+        console.error('Annyang error:', err);
+      });
 };
