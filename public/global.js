@@ -254,6 +254,7 @@ if (annyang) {
     
     function pageNavigate(page) {
         page = page.charAt(0).toUpperCase() + page.slice(1).toLowerCase()
+        console.log(page)
         page += ".html";
         window.location.href = page;
     }
