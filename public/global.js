@@ -249,7 +249,7 @@ bookImages();
 if (annyang) {
     const commands = {
         'Navigate to *page': pageNavigate,
-        'Lookup *book': audioBook,
+        'Look up *book': audioBook,
     };
     
     function pageNavigate(page) {
