@@ -105,7 +105,7 @@ async function searchBooksGoogle(event) {
             tableRow.appendChild(authorCell);
 
 
-            //Saved Book Button
+            // Saved Book Button
             const title = book.volumeInfo.title ||  'No title';
             const authorsArray = book.volumeInfo.authors || ['Unknown Author'];
             const authors = authorsArray.join(', ');
