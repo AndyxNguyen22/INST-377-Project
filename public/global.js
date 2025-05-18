@@ -26,6 +26,12 @@ async function searchBooksGoogle(event) {
     const bookSpeechBox = document.getElementById('bookSpeechBox');
     if (bookSpeechBox) {bookSpeechBox.style.display = 'none';};
 
+    const aboutUsDescription = document.getElementById('aboutUsDescription');
+    if (aboutUsDescription) {aboutUsDescription.style.display = 'none';};
+
+    const aboutSpeechBox = document.getElementById('aboutSpeechBox');
+    if (aboutSpeechBox) {aboutSpeechBox.style.display = 'none';};
+
     
     const bookName = document.getElementById('searchBox').value.trim().replace(/\s+/g, "+");
     console.log(bookName);

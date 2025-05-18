@@ -3,7 +3,7 @@ body {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-/* Header */
+/* Header Global */
 
 #daHeader {
     background-color: rgb(100, 128, 89);
@@ -11,7 +11,7 @@ body {
     text-align: center;
 }
 
-/* Navigation Bar */
+/* Navigation Bar Global */
 
 #navBar {
     background-color: rgb(156, 178, 147);
@@ -39,7 +39,7 @@ body {
     background-color: whitesmoke;
 }
 
-/* Search Bar */
+/* Search Bar Global */
 
 #searchBox {
     border-radius: 7px;
@@ -58,8 +58,8 @@ body {
     margin: 0;
 }
 
-/* Main Container */
-#mainContainer {
+/* Home Page Main Container */
+#homePageMainContainer {
   width: 100%;
   display: grid;
   grid-template-columns: 40% 60%;
@@ -80,7 +80,11 @@ body {
   text-align: center;
 }
 
-/* Slider */
+#instructions {
+  color:darkgreen;
+}
+
+/* Simple Slider */
 
 #sliderDiv {
   width: 330px;
@@ -106,7 +110,7 @@ body {
   grid-row: 1;
 }
 
-/* Home Audio Box */
+/* Home Page Audio Box */
 
 .homeSpeechBox{
   background-color: rgb(156, 178, 147);
@@ -126,7 +130,7 @@ body {
   color: white;
 }
 
-/* Search Results */
+/* Search Results Global */
 
 #searchResultsContainer {
     display: grid;
@@ -202,6 +206,94 @@ body {
   border-bottom-right-radius: 25px;
 }
 
+/* Book Page */
+
+#booksHeader {
+  text-align: center;
+}
+
+#savedBooksTable td:nth-child(1),
+#savedBooksTable th:nth-child(1) {
+  padding-right: 40px;
+}
+
+#savedBooksTable {
+  margin: auto;
+  font-size: larger;
+}
+
+#bookSpeechBox {
+  background-color:rgb(156, 178, 147);
+  border: 2px solid rgb(100, 128, 89);
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  margin-top: 10px;
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.bookSpeechText {
+  font-size: 13px;
+  color: white;
+}
+
+#bookPageMainContainer {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
+}
+
+#savedBooks {
+  grid-column: 2;
+  grid-row: 1;
+  width: 100%;
+}
+
+/* About Us Page */
+
+#aboutTitle {
+  text-align: center;
+}
+
+#aboutText {
+  text-align: center;
+  font-size: 20px;
+}
+
+#aboutSpeechBox {
+  background-color:rgb(156, 178, 147);
+  border: 2px solid rgb(100, 128, 89);
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  margin-top: 10px;
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.aboutSpeechText {
+  font-size: 13px;
+  color: white;
+}
+
+#aboutUsMainContainer {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
+}
+
+#aboutUsDescription {
+  grid-column: 2;
+  grid-row: 1;
+  width: 100%;
+}
+
+
+
+
 
 
 
@@ -228,6 +320,8 @@ body {
     outline: 0;
   }
 
+/* Book Page Buttons */
+
   .saveBookButton {
     border: none;
     background: none;
@@ -241,36 +335,9 @@ body {
 
 
 
-  
 
-/* About Us Page */
 
-  #aboutTitle {
-    text-align: center;
-  }
-
-  #aboutText {
-    text-align: center;
-    font-size: 20px;
-  }
-
-/* Book Page */
-
-  #booksHeader {
-    text-align: center;
-  }
-
-  #savedBooksTable td:nth-child(1),
-  #savedBooksTable th:nth-child(1) {
-    padding-right: 40px;
-  }
-
-  #savedBooksTable {
-    margin: auto;
-    font-size: larger;
-  }
-
-/* Audio */
+/* Audio Buttons */
 
   .audio-buttons{
     display: flex;
@@ -347,42 +414,4 @@ body {
     font-size: 1.125rem;
     padding: 1rem 2rem;
   }
-}
-
-#instructions {
-  color:darkgreen;
-}
-
-.bookSpeechBox {
-  background-color:rgb(156, 178, 147);
-  border: 2px solid rgb(100, 128, 89);
-  width: 48%;
-  display: flex;
-  flex-direction: column;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 10px;
-  margin-top: 10px;
-}
-
-.bookSpeechText {
-  font-size: 13px;
-  color: white;
-}
-
-.aboutSpeechBox {
-  background-color:rgb(156, 178, 147);
-  border: 2px solid rgb(100, 128, 89);
-  width: 48%;
-  display: flex;
-  flex-direction: column;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 10px;
-  margin-top: 10px;
-}
-
-.aboutSpeechText {
-  font-size: 13px;
-  color: white;
 }

@@ -18,44 +18,53 @@
                 <li><a href = "AboutUs.html">About Us</a></li>
                 <li>
                     <!-- Search Bar -->
-                    <form onsubmit="searchBooks(event)" id="searchForm">
+                    <form onsubmit="searchBooksGoogle(event)" id="searchForm">
                         <input type="text" id="searchBox">
                         <button type="submit" id="searchSubmit" class="button-11">Submit</button>
                     </form>
                 </li>
             </ul>
         </nav>
-        <!-- Description -->
-        <h1 id="aboutTitle">About Look Books</h1>
+        <!-- Main Container -->
+        <div id="aboutUsMainContainer">
+            <!-- Search Results -->
+            <div id="searchResultsContainer">
+                <table id="resultsTable"></table>
+            </div>
+            <!-- Description -->
+            <div id="aboutUsDescription">
+                <h1 id="aboutTitle">About Look Books</h1>
 
-        <p id="aboutText">
-            Welcome to Look Books! <br>
-            Look Books was created by two college students, Andy Nguyen and Thara Le.<br>
-            The goal of Look Books is to create a book site that allows users to search for books without bias
-            or sponsors influence. <br>
-            <br>
+                <p id="aboutText">
+                    Welcome to Look Books! <br>
+                    Look Books was created by two college students, Andy Nguyen and Thara Le.<br>
+                    The goal of Look Books is to create a book site that allows users to search for books without bias
+                    or sponsors influence. <br>
+                    <br>
 
-            Please feel free to contact us at anguye03@terpmail.umd.edu!
-        </p>
-        <!-- Audio Buttons -->
-        <div class = "aboutSpeechBox">
-            <div class = "aboutSpeechText">
-                <h1>Audio Navigation Options</h1><hr>
-                <p>Ensure your Mic is enabled to be able to use this feature <br>
-                    <ul>
-                       <li>Navigate to a Different Page</li> 
-                            <ul>
-                                <li> Say: Navigate to "page" </li>
-                            </ul>
-                        <li>Search a Book</li>
-                            <ul>
-                                <li>Say: Lookup "book title"</li>
-                            </ul>
+                    Please feel free to contact us at anguye03@terpmail.umd.edu!
                 </p>
             </div>
-            <div class="audio-buttons">
-                <button class="onButton" onclick = "annyang.start()">Turn On Listening</button>
-                <button class="offButton" onclick = "annyang.abort()">Turn Off Listening</button>
+            <!-- Audio Buttons -->
+            <div id="aboutSpeechBox">
+                <div class = "aboutSpeechText">
+                    <h1>Audio Navigation Options</h1><hr>
+                    <p>Ensure your Mic is enabled to be able to use this feature <br>
+                        <ul>
+                        <li>Navigate to a Different Page</li> 
+                                <ul>
+                                    <li> Say: Navigate to "page" </li>
+                                </ul>
+                            <li>Search a Book</li>
+                                <ul>
+                                    <li>Say: Lookup "book title"</li>
+                                </ul>
+                    </p>
+                </div>
+                <div class="audio-buttons">
+                    <button class="onButton" onclick = "annyang.start()">Turn On Listening</button>
+                    <button class="offButton" onclick = "annyang.abort()">Turn Off Listening</button>
+                </div>
             </div>
         </div>
     </body>

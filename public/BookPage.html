@@ -18,46 +18,49 @@
                 <li><a href = "AboutUs.html">About Us</a></li>
                 <li>
                     <!-- Search Bar -->
-                    <form onsubmit="searchBooks(event)" id="searchForm">
+                    <form onsubmit="searchBooksGoogle(event)" id="searchForm">
                         <input type="text" id="searchBox">
                         <button type="submit" id="searchSubmit" class="button-11">Submit</button>
                     </form>
                 </li>
             </ul>
         </nav>
-        <!-- Search Results -->
-        <div id="searchResultsContainer">
-            <table id="resultsTable"></table>
-        </div>
-        <!-- Saved Books -->
-        <div id="savedBooks">
-            <h1 id = "booksHeader">Your Saved Books!</h1>
-            <table id = "savedBooksTable">
-                <tr>
-                    <th>Title</th>
-                    <th>Author</th>
-                </tr>
-            </table>
-        </div>
-        <!-- Audio Buttons -->
-        <div class = "bookSpeechBox">
-            <div class = "bookSpeechText">
-                <h1>Audio Navigation Options</h1><hr>
-                <p>Ensure your Mic is enabled to be able to use this feature <br>
-                    <ul>
-                       <li>Navigate to a Different Page</li> 
-                            <ul>
-                                <li> Say: Navigate to "page" </li>
-                            </ul>
-                        <li>Search a Book</li>
-                            <ul>
-                                <li>Say: Lookup "book title"</li>
-                            </ul>
-                </p>
+        <!-- Main Container -->
+        <div id="bookPageMainContainer">
+            <!-- Search Results -->
+            <div id="searchResultsContainer">
+                <table id="resultsTable"></table>
             </div>
-            <div class="audio-buttons">
-                <button class="onButton" onclick = "annyang.start()">Turn On Listening</button>
-                <button class="offButton" onclick = "annyang.abort()">Turn Off Listening</button>
+            <!-- Saved Books -->
+            <div id="savedBooks">
+                <h1 id = "booksHeader">Your Saved Books!</h1>
+                <table id = "savedBooksTable">
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                    </tr>
+                </table>
+            </div>
+            <!-- Audio Buttons -->
+            <div id= "bookSpeechBox">
+                <div class="bookSpeechText">
+                    <h1>Audio Navigation Options</h1><hr>
+                    <p>Ensure your Mic is enabled to be able to use this feature <br>
+                        <ul>
+                        <li>Navigate to a Different Page</li> 
+                                <ul>
+                                    <li> Say: Navigate to "page" </li>
+                                </ul>
+                            <li>Search a Book</li>
+                                <ul>
+                                    <li>Say: Lookup "book title"</li>
+                                </ul>
+                    </p>
+                </div>
+                <div class="audio-buttons">
+                    <button class="onButton" onclick = "annyang.start()">Turn On Listening</button>
+                    <button class="offButton" onclick = "annyang.abort()">Turn Off Listening</button>
+                </div>
             </div>
         </div>
     </body>
