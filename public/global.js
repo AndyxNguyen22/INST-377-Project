@@ -253,8 +253,8 @@ if (annyang) {
     };
     
     function pageNavigate(page) {
-        page = page.charAt(0).toUpperCase() + page.slice(1).toLowerCase()
-        console.log(page)
+        page = page.toLowerCase().split(' ').map(word =>word.charAt(0).toUpperCase() + word.slice(1)).join('');
+        console.log(page);
         page += ".html";
         window.location.href = page;
     }
