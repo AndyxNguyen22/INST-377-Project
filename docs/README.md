@@ -4,12 +4,13 @@
 
 # Title: LookBook
 
-Description: Our aim for this project was to create an application that allows users to search up for books. When the user inputs a search, it will return with a table of books best matching the query search. The users can search for books, see the details regarding the books, click on the book, and save the book to a saved list. Right now our target browsers are computer users.
+# Description
+Our aim for this project was to create an application that allows users to search up for books. When the user inputs a search, it will return with a table of books best matching the query search. The users can search for books, see the details regarding the books, click on the book, and save the book to a saved list. Right now our target browsers are computer users.
 
 
 
 
-Developer Manual
+# Developer Manual
 
 
 When you first enter the application, you are on the Home Page. Here you are greeted with instructions with a slider showing book covers. You can also turn on your microphone to use voice commands. The buttons to turn on and off the microphone along with instructions are towards the bottom of the page. The Home Page is the only page you can perform searches. With a search, you will get a table of books with information regarding each book. You can click on the book to see the book description. Users will have to use the browser's go back arrow to go back to the search results after click on a book. You can save books using the save button available at the table. The About Us page is only a page with information regarding us, the creators.
