@@ -253,8 +253,11 @@ if (annyang) {
     };
     
     function pageNavigate(page) {
-        page = page.toLowerCase().split(' ').map(word =>word.charAt(0).toUpperCase() + word.slice(1)).join('');
-        if (page === "homepage") {return "HomePage"};
+        if (page === "homepage") {
+            page = "HomePage";
+        } else {
+            page = page.toLowerCase().split(' ').map(word =>word.charAt(0).toUpperCase() + word.slice(1)).join('');
+        }
         page += ".html";
         window.location.href = page;
     }
