@@ -7,7 +7,6 @@
         <script defer src="global.js"></script>
 
     </head>
-
     <body>
         <!-- Header -->
         <header id="daHeader">
@@ -28,52 +27,51 @@
                 </li>
             </ul>
         </nav>
-        <!-- Welcome Message -->
-        <div id="welcomeMessage">
-            <h1>Welcome to Looks Books!</h1>
-            <h3 id = "instructions">To get started type a book title in the search bar.<br>
-                You can also turn on your microphone and use your voice. Please scroll down for voice options.<br>
-                Please keep in mind searches can only be done on the Home Page.<br>
-                The Book page will show your Saved Books.
-                </h3>
-        </div>
-
-          <!-- Picture Slider -->
-        <div data-simple-slider id="sliderDiv"></div>
-
-
-        <!-- Search Results -->
-        <div id="searchResultsContainer">
-            <table id="resultsTable"></table>
-        </div>
-
-
-        
-        <!-- Audio Buttons -->
-        <div class = "speech-box">
-            <div class = "speech-text">
-                <h1>In this web page there are options to Navigate using Audio!</h1>
-                <p>Ensure your Mic is enabled to be able to use this feature <br>
+        <!-- Main Container -->
+        <div id="mainContainer">
+            <!-- Welcome Message -->
+            <div id="welcomeMessage">
+                <h1>Welcome to LooksBooks!</h1>
+                <hr>
+                <h3 id = "instructions">To get started type a book title in the search bar.</h3>
                     <ul>
-                       <li>Navigate to a Different Page</li> 
-                            <ul>
-                                <li> Say: Navigate to "page" </li>
-                            </ul>
-                        <li>Search a Book</li>
-                            <ul>
-                                <li>Say: Lookup "book title"</li>
-                            </ul>
-
-                </p>
+                        <li>You can also turn on your microphone and use your voice. Please scroll down for voice options.</li>
+                        <li>Please <strong>keep in mind</strong> searches can only be done on the Home Page.</li>
+                        <li>The Book page will show your Saved Books.</li>
+                    </ul>
             </div>
+            <!-- Picture Slider -->
+            <div id="sliderDecorDiv">
+                <div data-simple-slider id="sliderDiv">
 
-        <div class="audio-buttons">
-            <button class="onButton" onclick = "annyang.start()">Turn On Listening</button>
-            <button class="offButton" onclick = "annyang.abort()">Turn Off Listening</button>
+                </div>
+            </div>
+            <!-- Search Results -->
+            <div id="searchResultsContainer">
+                <table id="resultsTable"></table>
+            </div>
+            <!-- Audio Buttons -->
+            <div class = "homeSpeechBox">
+                <div class = "homeSpeechText">
+                    <h2>Audio Navigation Options</h2><hr>
+                    <p>Ensure your Mic is enabled to be able to use this feature <br>
+                        <ul>
+                        <li>Navigate to a Different Page</li> 
+                                <ul>
+                                    <li> Say: Navigate to "page" </li>
+                                </ul>
+                            <li>Search a Book</li>
+                                <ul>
+                                    <li>Say: Look up "book title"</li>
+                                </ul>
+
+                    </p>
+                </div>
+                <div class="audio-buttons">
+                    <button class="onButton" onclick = "annyang.start()">Turn On Listening</button>
+                    <button class="offButton" onclick = "annyang.abort()">Turn Off Listening</button>
+                </div>
+            </div>
         </div>
-
-
-
-      
     </body>
 </html>

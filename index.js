@@ -81,6 +81,7 @@ app.get('/:bookID', async (req, res) => {
             <head>
                 <title>Looks Books</title>
                 <link rel="stylesheet" href="global.css">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
                 <script defer src="global.js"></script>
             </head>
             <body>
@@ -93,7 +94,7 @@ app.get('/:bookID', async (req, res) => {
                     <ul id="navBar">
                         <li><a href = "HomePage.html">Home Page</a></li>
                         <li><a href = "BookPage.html">Book Page</a></li>
-                        <li><a href = "AboutPage.html">About Us</a></li>
+                        <li><a href = "AboutUs.html">About Us</a></li>
                         <li>
                             <!-- Search Bar -->
                             <form onsubmit="searchBooksGoogle(event)" id="searchForm">
@@ -104,24 +105,28 @@ app.get('/:bookID', async (req, res) => {
                     </ul>
                 </nav>
                 <!-- One Book Page -->
-                <div id="oneBookLeftSide">
-                    <img src="http://books.google.com/books/publisher/content?id=${bookID}&printsec=frontcover&img=1&
-                            zoom=1&imgtk=AFLRE72eeeOuMSuFAq092-LhG39YKvUY7kkHzcSZV2scVd0_cL1CrlRHJIBirqdqJQvZfMJr8n73
-                            eqbXEL2iTbdukRcn6jNmaG86FPcv2ccHuy1ZRNgJtmoncqEb9crXw2D6d3WZWtUS&source=gbs_api" 
-                            width="250" height="380">
-                    <div id="oneBookRightSide">
-                        <h2>${book.title}</h2>
-                        <p style="font-size: 18px;">${book.averageRating ? book.averageRating.toFixed(1) + ' Rating':'No Ratings'}</p>
-                        <h4>Description:</h4>
-                        <p style="font-size: 12px; font-family: calibri;">${book.description}</p>
+                <div id="oneBookMainContainer">
+                    <div id="oneBookLeftSide">
+                        <img src="http://books.google.com/books/publisher/content?id=${bookID}&printsec=frontcover&img=1&
+                                zoom=1&imgtk=AFLRE72eeeOuMSuFAq092-LhG39YKvUY7kkHzcSZV2scVd0_cL1CrlRHJIBirqdqJQvZfMJr8n73
+                                eqbXEL2iTbdukRcn6jNmaG86FPcv2ccHuy1ZRNgJtmoncqEb9crXw2D6d3WZWtUS&source=gbs_api" 
+                                width="250" height="380" id="oneBookCover">
                     </div>
-                </div>
+                    <div id="oneBookRightSide">
+                        <h2 style="font-size: 30px; margin-bottom: 0;">${book.title}</h2>
+                        <span>${book.authors}</span>
+                        <p style="font-size: 18px; font-family: Cambria;"><strong>${book.averageRating ? book.averageRating.toFixed(1) + ' Rating':'No Ratings'}</strong></p>
+                        <p style="font-size: 12px; font-family: Calibri;" id="oneBookDescription">${book.description}</p>
+                        <h4 style="font-size: 18px;">Genres: ${book.categories}</h4>
+                        <p>${book.pageCount} pages, Published ${book.publishedDate}</p>
+                    </div>
                 
-                <!-- Search Results -->
-                <div id="searchResultsContainer">
-                    <table id="resultsTable"></table>
+                    <!-- Search Results -->
+                    <div id="searchResultsContainer">
+                        <table id="resultsTable"></table>
+                    </div>
+
                 </div>
-                
             </body>
         </html>
         `)

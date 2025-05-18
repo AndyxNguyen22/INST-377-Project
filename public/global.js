@@ -67,18 +67,30 @@ async function searchBooksGoogle(event) {
 
     const apiKey = 'AIzaSyDfHBexf1SnirVY0BW3XlXhQ-iIVvhlft8'
 
-    const welcomeMessage = document.getElementById('welcomeMessage');
-    welcomeMessage.innerHTML = ''
+    const sliderDecorDiv = document.getElementById('sliderDecorDiv');
+    if (sliderDecorDiv) {sliderDecorDiv.style.display = 'none';};
 
     const resultsTable = document.getElementById('resultsTable');
-    resultsTable.innerHTML = '';
+    if (resultsTable) {resultsTable.innerHTML = '';};
 
     const sliderDiv = document.getElementById('sliderDiv');
-    sliderDiv.style.display = 'none';
+    if (sliderDiv) {sliderDiv.style.display = 'none';};
 
+    const oneBookLeftSide = document.getElementById('oneBookLeftSide');
+    if (oneBookLeftSide) {oneBookLeftSide.style.display = 'none';};
+
+    const oneBookRightSide = document.getElementById('oneBookRightSide');
+    if (oneBookRightSide) {oneBookRightSide.style.display = 'none';};
+
+    const savedBooks = document.getElementById('savedBooks');
+    if (savedBooks) {savedBooks.style.display = 'none';};
+
+    const bookSpeechBox = document.getElementById('bookSpeechBox');
+    if (bookSpeechBox) {bookSpeechBox.style.display = 'none';};
+
+    
     const bookName = document.getElementById('searchBox').value.trim().replace(/\s+/g, "+");
     console.log(bookName);
-    
     
     await fetch(`https://www.googleapis.com/books/v1/volumes?q=${bookName}&download=epub&key=${apiKey}`)
     .then((result) => result.json())
@@ -113,7 +125,9 @@ async function searchBooksGoogle(event) {
 
             const save = document.createElement('td');
             const saveButton = document.createElement('button');
-            saveButton.textContent = 'Save';
+            saveButton.setAttribute('class', 'saveBookButton')
+            saveButton.innerHTML = `<img src="https://cdn2.iconfinder.com/data/icons/most-useful-icons-4/50/FLAG-512.png" 
+                                    width="40" height="40">`;
             saveButton.addEventListener('click', () => {
                 saveBookToBackend(title, authors);
             }); 
@@ -129,6 +143,7 @@ async function searchBooksGoogle(event) {
         resultsTable.setAttribute('class', 'styleResultsTable')
     });
 };
+
 
 // Adding Saved Book to Database Function
 async function saveBookToBackend(bookTitle, bookAuthor) {
@@ -189,12 +204,10 @@ async function loadSavedBooks (){
             savedBooksTable.appendChild(row);
         });
 
-
     } catch (error) {
         console.error('Error:', error);
     }
 };
-
 
 document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('savedBooksTable')) {
@@ -208,7 +221,6 @@ async function bookImages() {
     const sliderDiv = document.getElementById("sliderDiv");
     sliderDiv.innerHTML = "";
     const bookSubjects = ["fantasy", "fiction", "mystery", "romance", "science"];
-
 
     const imagesLoad = Array.from({length:10}, () => {
         const random = bookSubjects[Math.floor (Math.random() * bookSubjects.length)];
@@ -224,7 +236,6 @@ async function bookImages() {
         });
     });
 
-
     try {
         const images = await Promise.all(imagesLoad);
         images.forEach(url => {
@@ -238,11 +249,11 @@ async function bookImages() {
     catch (error) {
         console.error("Error loading image:", error);
     }
-
-
 };
 
-bookImages();
+if (window.location.pathname === '/HomePage.html') {
+    bookImages();
+  }
 
 
 // Annyang
