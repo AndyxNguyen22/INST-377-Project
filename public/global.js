@@ -269,4 +269,5 @@ if (annyang) {
     annyang.addCommands(commands);
 
     annyang.start();
+    console.log('Annyang successfully started.')
 };
